@@ -1,13 +1,242 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Based on TailwindCSS recommendations,
+  consider using classes instead of the `@apply` directive
+  @see https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction
+*/
+:root,
+:root.light-mode {
+  /* Grey */
+  --color-grey-0: #fff;
+  --color-grey-50: #f9fafb;
+  --color-grey-100: #f3f4f6;
+  --color-grey-200: #e5e7eb;
+  --color-grey-300: #d1d5db;
+  --color-grey-400: #9ca3af;
+  --color-grey-500: #6b7280;
+  --color-grey-600: #4b5563;
+  --color-grey-700: #374151;
+  --color-grey-800: #1f2937;
+  --color-grey-900: #111827;
+  --color-blue-100: #e0f2fe;
+  --color-blue-700: #0369a1;
+  --color-green-100: #dcfce7;
+  --color-green-700: #15803d;
+  --color-yellow-100: #fef9c3;
+  --color-yellow-700: #a16207;
+  --color-silver-100: #e5e7eb;
+  --color-silver-700: #374151;
+  --color-indigo-100: #e0e7ff;
+  --color-indigo-700: #4338ca;
+  --color-red-100: #fee2e2;
+  --color-red-700: #b91c1c;
+  --color-red-800: #991b1b;
+  --backdrop-color: rgba(255, 255, 255, 0.1);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0px 0.6rem 2.4rem rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 2.4rem 3.2rem rgba(0, 0, 0, 0.12);
+  --image-grayscale: 0;
+  --image-opacity: 100%;
+
+  --color-main-yellow: #F6C90E;
+  --color-hover-yellow: #f0c104;
+  --color-main-black: #303841;
+  --color-main-gray: #777777;
+}
+
+:root.dark-mode {
+  --color-grey-0: #18212f;
+  --color-grey-50: #111827;
+  --color-grey-100: #1f2937;
+  --color-grey-200: #374151;
+  --color-grey-300: #4b5563;
+  --color-grey-400: #6b7280;
+  --color-grey-500: #9ca3af;
+  --color-grey-600: #d1d5db;
+  --color-grey-700: #e5e7eb;
+  --color-grey-800: #f3f4f6;
+  --color-grey-900: #f9fafb;
+  --color-blue-100: #075985;
+  --color-blue-700: #e0f2fe;
+  --color-green-100: #166534;
+  --color-green-700: #dcfce7;
+  --color-yellow-100: #854d0e;
+  --color-yellow-700: #fef9c3;
+  --color-silver-100: #374151;
+  --color-silver-700: #f3f4f6;
+  --color-indigo-100: #3730a3;
+  --color-indigo-700: #e0e7ff;
+  --color-red-100: #fee2e2;
+  --color-red-700: #b91c1c;
+  --color-red-800: #991b1b;
+  --backdrop-color: rgba(0, 0, 0, 0.3);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0px 0.6rem 2.4rem rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 2.4rem 3.2rem rgba(0, 0, 0, 0.4);
+  --image-grayscale: 10%;
+  --image-opacity: 90%;
+}
+
+:root {
+  --color-brand-50: #eef2ff;
+  --color-brand-100: #e0e7ff;
+  --color-brand-200: #c7d2fe;
+  --color-brand-500: #6366f1;
+  --color-brand-600: #4f46e5;
+  --color-brand-700: #4338ca;
+  --color-brand-800: #3730a3;
+  --color-brand-900: #312e81;
+  --border-radius-tiny: 3px;
+  --border-radius-sm: 5px;
+  --border-radius-md: 7px;
+  --border-radius-lg: 9px;
+
+  --main-color: #1e5ad7;
+  --main-color-hover: #83a2e6;
+  --text-heading-color: #292929;
+  --bg-footer-color: #262229;
+  --text-note-color: #777777;
+  --bg-section-color: #f9f9f9;
+}
+
+/* *,
+*::before,
+*::after {
+  @apply m-0 box-border p-0 transition-[background-color] delay-[0.05s] duration-[0.3s,border];
+
+  /* Creating animations for dark mode */
+/* } */
+
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  @apply w-full min-h-screen text-[1.6rem] leading-normal text-[color:var(--color-grey-700)] transition-[color] delay-[0.3s] duration-[0.3s,background-color];
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+}
+
+input,
+button,
+textarea,
+select {
+  @apply text-inherit;
+  font: inherit;
+}
+
+button {
+  @apply cursor-pointer;
+}
+
+*:disabled {
+  @apply cursor-not-allowed;
+}
+
+select:disabled,
+input:disabled {
+  @apply bg-[color:var(--color-grey-200)] text-[color:var(--color-grey-500)];
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  @apply -outline-offset-1;
+  outline: 2px solid var(--color-brand-600);
+}
+
+/* Parent selector, finally 😃 */
+button:has(svg) {
+  @apply leading-[0];
+}
+
+a {
+  @apply text-inherit no-underline;
+}
+
+ul {
+  list-style: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-heading-color);
+}
+
+img {
+  @apply max-w-full opacity-[var(--image-opacity)] grayscale-[var(--image-grayscale)];
+  /* For dark mode */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@layer utilities {
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+}
+
+.custom-shape-divider-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: scaleX(-1) rotate(180deg);
+}
+
+.custom-shape-divider-top svg {
+  position: relative;
+  display: block;
+  width: calc(244% + 1.3px);
+  height: 200px;
+}
+
+.custom-shape-divider-top .shape-fill {
+  fill: #fff;
+}
+
+.item-exit {
+  opacity: 1;
+}
+
+.item-exit-active {
+  opacity: 0;
+  transition: opacity 700ms ease-out;
+}
+
+.item-enter {
+  opacity: 0.01;
+  transform: translateX(50px);
+}
+
+.item-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+  transform: translateX(0);
 }
