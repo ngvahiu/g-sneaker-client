@@ -25,7 +25,7 @@ function App() {
   }, [])
 
   return (
-    <div className="App w-screen h-full min-h-screen flex items-center justify-center py-[20px]">
+    <div className="App max-w-screen h-full min-h-screen flex items-center justify-center py-[20px]">
       <div className="bottom-0 fixed w-full h-2/3 bg-[--color-main-yellow]">
         <div className="custom-shape-divider-top">
           <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
