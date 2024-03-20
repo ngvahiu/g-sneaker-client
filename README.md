@@ -17,4 +17,4 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 
 ## Deployment
-I used Vercel to deploy this application. The  G-sneaker can be [viewed online here](https://g-sneaker-client.vercel.app/). Because I used [render](https://render.com/) with free subscription to deploy G-sneaker server, so it may take a white to get response when there are no requests to this server for a long time.
+I used Vercel to deploy this application. The  G-sneaker can be [viewed online here](https://g-sneaker-client.vercel.app/). Because I used [render](https://render.com/) with free subscription to deploy G-sneaker server, so it may take a while to get response when there are no requests to this server for a long time.
