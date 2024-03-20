@@ -9,7 +9,7 @@ function CartItem({ item }) {
         <div className='relative grid grid-cols-12 gap-[20px]'>
             <div className='col-span-4'>
                 <div className='rounded-full w-[75px] h-[75px] flex items-center justify-center' style={{ backgroundColor: item.color }}>
-                    <img className='absolute bottom-0 w-[110px] h-[110px] rotate-[330deg]' src={item.image} alt='img-shoes' />
+                    <img className='absolute bottom-[10px] w-[110px] h-[110px] rotate-[330deg]' src={item.image} alt='img-shoes' />
                 </div>
             </div>
             <div className='col-span-8 space-y-[5px]'>

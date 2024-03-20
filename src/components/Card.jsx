@@ -1,8 +1,8 @@
 import React from 'react'
 
-function Card({ header, isCart = false, totalPrice = 200, content }) {
+function Card({ header, isCart = false, totalPrice = 0, content }) {
     return (
-        <div className="min-h-[500px] w-[306px] relative bg-white px-[28px] py-[12px] rounded-[28px] shadow-2xl overflow-hidden before:content-[''] before:absolute before:block before:top-0 before:left-0 before:bg-[--color-main-yellow] before:w-[100px] before:h-[150px] before:rounded-br-full">
+        <div className="min-h-[500px] w-[306px] relative bg-white px-[28px] py-[12px] rounded-[28px] shadow-2xl overflow-hidden before:content-[''] before:absolute before:block before:top-0 before:left-0 before:bg-[--color-main-yellow] before:w-[100px] before:h-[130px] before:rounded-br-full">
             <div className='relative w-full'>
                 <img className='w-[50px] h-[25px] block' src={require('../assets/nike.png')} alt='nike' />
                 <div className={`flex items-center ${isCart ? 'justify-between' : 'justify-start'}`}>

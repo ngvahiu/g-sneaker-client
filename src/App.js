@@ -35,19 +35,25 @@ function App() {
       </div>
       <div className='flex h-full items-center justify-center'>
         <div className='grid grid-cols-1 md:grid-cols-2 text-center gap-[40px]'>
-          <Card header="Our Products" content={products?.map(product => <ProductItem product={product} key={product.id} />)} />
-
+          <Card
+            header="Our Products"
+            content={products?.map(product => <ProductItem product={product} key={product.id} />)}
+          />
           <Card
             header="Your cart"
             isCart={true}
             totalPrice={calculateTotalPrice().toFixed(2)}
             content={
-              cart?.length > 0 ? <TransitionGroup className="space-y-[40px]" component="div">
-                {cart?.map(item => <CSSTransition key={item.id} timeout={700} classNames="item">
-                  <CartItem item={item} />
-                </CSSTransition>
-                )}
-              </TransitionGroup> : <p className='text-[12px] text-left text-[--color-grey-500]'>Your cart is empty.</p>
+              <TransitionGroup className="space-y-[40px] mt-[10px]" component="div">
+                {
+                  cart?.length > 0 ? cart?.map((item, index) => <CSSTransition key={index} timeout={700} classNames="item">
+                    <CartItem item={item} />
+                  </CSSTransition>
+                  ) : <CSSTransition timeout={700} classNames="item">
+                    <p className='text-[12px] text-left text-[--color-grey-500]'>Your cart is empty.</p>
+                  </CSSTransition>
+                }
+              </TransitionGroup>
             }
           />
         </div>
